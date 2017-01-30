@@ -1,0 +1,7 @@
+{
+  "elasticsearch": {
+    "Env": [
+      {"CATALINA_HOME":""}
+    ]
+  }
+}

@@ -1,0 +1,302 @@
+'xenv': { 
+  'runtimes': [ 
+    'erlang': { 
+      'versions': [ 
+        '8.2.0', 
+      ], 
+      'selected': '8.2.0' 
+    }, 
+    'go': { 
+      'versions': [ 
+        '1.7.4', 
+      ], 
+      'selected': '1.7.4' 
+    }, 
+    'java': { 
+      'versions': [ 
+        '8.0.112', 
+      ], 
+      'selected': '8.0.112' 
+    }, 
+    'node': { 
+      'versions': [ 
+        '6.9.4', 
+        '7.4.0', 
+      ], 
+      'selected': '6.9.4' 
+    }, 
+    'perl': { 
+      'versions': [ 
+        '5.16.3', 
+      ], 
+      'selected': '5.16.3' 
+    }, 
+    'php': { 
+      'versions': [ 
+        '5.6.29', 
+        '7.1.0', 
+      ], 
+      'selected': '5.6.29' 
+    }, 
+    'python': { 
+      'versions': [ 
+        '2.7.12', 
+        '3.5.2', 
+      ], 
+      'selected': '2.7.12' 
+    }, 
+    'racket': { 
+      'versions': [ 
+        '6.7.0', 
+      ], 
+      'selected': '6.7.0' 
+    }, 
+    'ruby': { 
+      'versions': [ 
+        '2.2.6', 
+        '2.3.3', 
+      ], 
+      'selected': '2.3.3' 
+    }, 
+  ], 
+  'servers': [ 
+    'apache': { 
+      'versions': [ 
+        '2.4.25', 
+      ], 
+      'selected': '2.4.25' 
+    }, 
+    'couchdb': { 
+      'versions': [ 
+        '2.0.0', 
+      ], 
+      'selected': '2.0.0' 
+    }, 
+    'elasticsearch': { 
+      'versions': [ 
+        '5.1.2', 
+      ], 
+      'selected': '5.1.2' 
+    }, 
+    'mariadb': { 
+      'versions': [ 
+        '10.1.20', 
+      ], 
+      'selected': '10.1.20' 
+    }, 
+    'mongodb': { 
+      'versions': [ 
+        '3.5.1', 
+      ], 
+      'selected': '3.5.1' 
+    }, 
+    'mysql': { 
+      'versions': [ 
+        '5.7.17', 
+      ], 
+      'selected': '5.7.17' 
+    }, 
+    'postgresql': { 
+      'versions': [ 
+        '9.5.5', 
+      ], 
+      'selected': '9.5.5' 
+    }, 
+    'tomcat': { 
+      'versions': [ 
+        '8.5.9', 
+      ], 
+      'selected': '8.5.9' 
+    }, 
+  ], 
+  'server.apps': [ 
+    'filebeat': { 
+      'versions': [ 
+        '5.1.2', 
+      ], 
+      'selected': '5.1.2' 
+    }, 
+    'kibana': { 
+      'versions': [ 
+        '5.1.2', 
+      ], 
+      'selected': '5.1.2' 
+    }, 
+    'logstash': { 
+      'versions': [ 
+        '5.1.2', 
+      ], 
+      'selected': '5.1.2' 
+    }, 
+    'metricbeat': { 
+      'versions': [ 
+        '5.1.2', 
+      ], 
+      'selected': '5.1.2' 
+    }, 
+    'packetbeat': { 
+      'versions': [ 
+        '5.1.2', 
+      ], 
+      'selected': '5.1.2' 
+    }, 
+    'phpmyadmin': { 
+      'versions': [ 
+        '4.6.2', 
+      ], 
+      'selected': '4.6.2' 
+    }, 
+    'winlogbeat': { 
+      'versions': [ 
+        '5.1.2', 
+      ], 
+      'selected': '5.1.2' 
+    }, 
+  ], 
+  'tools': [ 
+    'agentransack': { 
+      'versions': [ 
+        '8.6.5', 
+      ], 
+      'selected': '8.6.5' 
+    }, 
+    'bcompare': { 
+      'versions': [ 
+        '4.1.6', 
+      ], 
+      'selected': '4.1.6' 
+    }, 
+    'filezilla': { 
+      'versions': [ 
+        '3.23.0', 
+      ], 
+      'selected': '3.23.0' 
+    }, 
+    'ilspy': { 
+      'versions': [ 
+        '2.4.0', 
+      ], 
+      'selected': '2.4.0' 
+    }, 
+    'notepad++': { 
+      'versions': [ 
+        '7.3.0', 
+      ], 
+      'selected': '7.3.0' 
+    }, 
+    'storageexplorer': { 
+      'versions': [ 
+        '1.3.1', 
+      ], 
+      'selected': '1.3.1' 
+    }, 
+    'vscode': { 
+      'versions': [ 
+        '1.8.0', 
+      ], 
+      'selected': '1.8.0' 
+    }, 
+  ], 
+  'utils': [ 
+    '7zip': { 
+      'versions': [ 
+        '16.04', 
+      ], 
+      'selected': '16.04' 
+    }, 
+    'consul': { 
+      'versions': [ 
+        '0.7.2', 
+      ], 
+      'selected': '0.7.2' 
+    }, 
+    'curl': { 
+      'versions': [ 
+        '7.51.0', 
+      ], 
+      'selected': '7.51.0' 
+    }, 
+    'delprof2': { 
+      'versions': [ 
+        '1.6.0', 
+      ], 
+      'selected': '1.6.0' 
+    }, 
+    'diffmerge': { 
+      'versions': [ 
+        '4.2.0', 
+      ], 
+      'selected': '4.2.0' 
+    }, 
+    'git': { 
+      'versions': [ 
+        '2.11.0', 
+      ], 
+      'selected': '2.11.0' 
+    }, 
+    'gnu': { 
+      'versions': [ 
+        '2.5.4', 
+      ], 
+      'selected': '2.5.4' 
+    }, 
+    'jq': { 
+      'versions': [ 
+        '1.5.0', 
+      ], 
+      'selected': '1.5.0' 
+    }, 
+    'nomad': { 
+      'versions': [ 
+        '0.5.2', 
+      ], 
+      'selected': '0.5.2' 
+    }, 
+    'openssl': { 
+      'versions': [ 
+        '1.1.0c', 
+      ], 
+      'selected': '1.1.0c' 
+    }, 
+    'rbtray': { 
+      'versions': [ 
+        '4.3.0', 
+      ], 
+      'selected': '4.3.0' 
+    }, 
+    'rktools': { 
+      'versions': [ 
+      ], 
+      'selected': '4.3.0' 
+    }, 
+    'serf': { 
+      'versions': [ 
+        '0.8.0', 
+      ], 
+      'selected': '0.8.0' 
+    }, 
+    'server': { 
+      'versions': [ 
+        'apache', 
+      ], 
+      'selected': 'apache' 
+    }, 
+    'uuidgen': { 
+      'versions': [ 
+      ], 
+      'selected': 'apache' 
+    }, 
+    'vault': { 
+      'versions': [ 
+        '0.6.4', 
+      ], 
+      'selected': '0.6.4' 
+    }, 
+    'yarn': { 
+      'versions': [ 
+        '0.18.1', 
+      ], 
+      'selected': '0.18.1' 
+    }, 
+  ], 
+} 

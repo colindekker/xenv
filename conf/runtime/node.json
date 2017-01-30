@@ -4,6 +4,23 @@
 
   ],
   "config": {
+    "tools": [
+      {
+        "key": "npm",
+        "settings": [
+          {
+            "key": "foo",
+            "value": 60,
+            "enabled": true
+          },
+          {
+            "key": "bar",
+            "value": 60,
+            "enabled": true
+          }
+        ]
+      }
+    ],
     "files": [
       {
         "path":"./etc",
