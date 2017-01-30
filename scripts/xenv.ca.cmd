@@ -2,9 +2,9 @@
 cls
 
 SETLOCAL
-  REM CALL :NETWORK
   REM CALL :MAIN
-  CALL :PROCESS_SSL_SITE "beautypointmaarssen.dev"
+  CALL :PROCESS_SSL_SITE "rtfd.xenv.dev"
+  CALL :PROCESS_SSL_SITE "cv.xenv.dev"
 ENDLOCAL
 
 EXIT /B %ERRORLEVEL%
@@ -28,6 +28,10 @@ GOTO :EOF
     CALL :PROCESS_CA "!CAROOT!" "" "" ""
     CALL :PROCESS_CA "!CAROOT!" "intermediate" "" ""
     CALL :PROCESS_CA "!CAROOT!" "intermediate" "server" "apache"
+
+    CALL :PROCESS_CA_CRL "!CAROOT!" "" "" ""
+    CALL :PROCESS_CA_CRL "!CAROOT!" "intermediate" "" ""
+    CALL :PROCESS_CA_CRL "!CAROOT!" "intermediate" "server" "apache"
 
     CALL :PROCESS_CA_SSL "!CAROOT!" "" "" ""
     CALL :PROCESS_CA_SSL "!CAROOT!" "intermediate" "" ""
@@ -70,6 +74,67 @@ GOTO :EOF
         CALL :PROCESS_CA_DIR !CA_LOCATION! new
         CALL :PROCESS_CA_DIR !CA_LOCATION! pvt
         CALL :PROCESS_CA_DIR !CA_LOCATION! val
+
+        COPY "%~dp0..\conf\util\openssl\ca!CA_FILENAME!.conf" "!CA_LOCATION!\openssl.conf">NUL 2>&1
+    ECHO ----------------
+  ENDLOCAL
+GOTO :EOF
+
+:PROCESS_CA_CRL
+  SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+    SET _CA_LOCATION=%~1
+    SET _CA_LEVEL=%~2
+    SET _CA_APPLICATION_TYPE=%~3
+    SET _CA_APPLICATION=%~4
+
+    ECHO ca crl
+      ECHO - !_CA_LEVEL!
+      ECHO - !_CA_APPLICATION_TYPE!
+      ECHO - !_CA_APPLICATION!
+        SET CA_LOCATION=!_CA_LOCATION!
+
+        IF "!_CA_LEVEL!" NEQ "" (
+          IF "!_CA_APPLICATION_TYPE!" NEQ "" (
+            IF "!_CA_APPLICATION!" NEQ "" (
+              SET CA_LOCATION=!_CA_LOCATION!\..\!_CA_APPLICATION_TYPE!\!_CA_APPLICATION!\_xenv\ssl
+              SET CA_FILENAME=.!_CA_APPLICATION_TYPE!.!_CA_APPLICATION!
+            ) ELSE (
+              SET CA_LOCATION=!_CA_LOCATION!\..\!_CA_APPLICATION_TYPE!\_xenv\ssl
+              SET CA_FILENAME=.!_CA_APPLICATION!
+            )
+          ) ELSE (
+            SET CA_LOCATION=!CA_LOCATION!\!_CA_LEVEL!
+            SET CA_FILENAME=.!_CA_LEVEL!
+          )
+        )
+
+        ECHO   - crl db
+          IF NOT EXIST "!CA_LOCATION!\index.txt.attr" (
+            touch "!CA_LOCATION!\index.txt.attr"
+            ECHO     - db created
+          ) ELSE (
+            ECHO     - db exists
+          )
+        ECHO   - crlnumber db
+          IF NOT EXIST "!CA_LOCATION!\crlnumber" (
+            touch "!CA_LOCATION!\crlnumber"
+            ECHO     - db created
+          ) ELSE (
+            ECHO     - db exists
+          )
+
+        ECHO   - crl
+          IF NOT EXIST "!CA_LOCATION!\crl\ca!CA_FILENAME!.crl.pem" (
+            openssl ca -config "!CA_LOCATION!\openssl.conf" -gencrl -out "!CA_LOCATION!\crl\ca!CA_FILENAME!.crl.pem"
+            REM >NUL 2>&1
+          ) ELSE (
+            ECHO     - ca.key exists
+          )
+          
+          ECHO     - crl
+          IF NOT EXIST "!CA_LOCATION!\val\ca!CA_FILENAME!.crl.val.txt" (
+            openssl crl -in "!CA_LOCATION!\crl\ca!CA_FILENAME!.crl.pem" -noout -text > "!CA_LOCATION!\val\ca!CA_FILENAME!.crl.pem.val.txt"
+          )
 
         COPY "%~dp0..\conf\util\openssl\ca!CA_FILENAME!.conf" "!CA_LOCATION!\openssl.conf">NUL 2>&1
     ECHO ----------------
