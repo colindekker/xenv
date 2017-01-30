@@ -1,0 +1,558 @@
+{
+  "server-app":"openssl",
+  "config": {
+    "sectionfmt": "[{0}]",
+    "sections": [
+    {
+      "key": "base",
+        "settings": [
+        {
+          "key": "dir",
+          "value": "{%XENVU}\\openssl\\%%OPENSSL_VERSION%%",
+          "enabled": true
+        },
+        {
+          "key": "oid_section",
+          "value": "new_oids",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "new_oids",
+        "settings": [
+        {
+          "key": "tsa_policy1",
+          "value": "1.2.3.4.1",
+          "enabled": true
+        },
+        {
+          "key": "tsa_policy2",
+          "value": "1.2.3.4.5.6",
+          "enabled": true
+        },
+        {
+          "key": "tsa_policy3",
+          "value": "1.2.3.4.5.7",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "ca",
+        "settings": [
+        {
+          "key": "default_ca",
+          "value": "CA_default",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "CA_default",
+        "settings": [
+        {
+          "key": "certs",
+          "value": "$dir/crt",
+          "enabled": true
+        },
+        {
+          "key": "certificate",
+          "value": "$dir/crt/ca.cert.pem",
+          "enabled": true
+        },
+        {
+          "key": "private_key",
+          "value": "$dir/pvt/ca.key.pem",
+          "enabled": true
+        },
+        {
+          "key": "RANDFILE",
+          "value": "$dir/pvt/.rand",
+          "enabled": true
+        },
+        {
+          "key": "default_days",
+          "value": 365,
+          "enabled": true
+        },
+        {
+          "key": "crl_dir",
+          "value": "$dir/crl",
+          "enabled": true
+        },
+        {
+          "key": "crl",
+          "value": "$dir/crl/ca.crl.pem",
+          "enabled": true
+        },
+        {
+          "key": "crlnumber",
+          "value": "$dir/crl/crlnumber",
+          "enabled": true
+        },
+        {
+          "key": "crl_extensions",
+          "value": "crl_ext",
+          "enabled": true
+        },
+        {
+          "key": "default_crl_days",
+          "value": 30,
+          "enabled": true
+        },
+        {
+          "key": "new_certs_dir",
+          "value": "$dir/new",
+          "enabled": true
+        },
+        {
+          "key": "database",
+          "value": "$dir/index.txt",
+          "enabled": true
+        },
+        {
+          "key": "serial",
+          "value": "$dir/serial",
+          "enabled": true
+        },
+        {
+          "key": "x509_extensions",
+          "value": "usr_cert",
+          "enabled": true
+        },
+        {
+          "key": "name_opt",
+          "value": "ca_default",
+          "enabled": true
+        },
+        {
+          "key": "cert_opt",
+          "value": "ca_default",
+          "enabled": true
+        },
+        {
+          "key": "default_md",
+          "value": "default",
+          "enabled": true
+        },
+        {
+          "key": "preserve",
+          "value": "no",
+          "enabled": true
+        },
+        {
+          "key": "policy",
+          "value": "policy_anything",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "policy_match",
+        "settings": [
+        {
+          "key": "countryName",
+          "value": "match",
+          "enabled": true
+        },
+        {
+          "key": "stateOrProvinceName",
+          "value": "match",
+          "enabled": true
+        },
+        {
+          "key": "organizationName",
+          "value": "match",
+          "enabled": true
+        },
+        {
+          "key": "organizationalUnitName",
+          "value": "optional",
+          "enabled": true
+        },
+        {
+          "key": "commonName",
+          "value": "supplied",
+          "enabled": true
+        },
+        {
+          "key": "emailAddress",
+          "value": "optional",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "policy_anything",
+        "settings": [
+        {
+          "key": "countryName",
+          "value": "optional",
+          "enabled": true
+        },
+        {
+          "key": "stateOrProvinceName",
+          "value": "optional",
+          "enabled": true
+        },
+        {
+          "key": "localityName",
+          "value": "optional",
+          "enabled": true
+        },
+        {
+          "key": "organizationName",
+          "value": "optional",
+          "enabled": true
+        },
+        {
+          "key": "organizationalUnitName",
+          "value": "optional",
+          "enabled": true
+        },
+        {
+          "key": "commonName",
+          "value": "optional",
+          "enabled": true
+        },
+        {
+          "key": "emailAddress",
+          "value": "optional",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "req",
+        "settings": [
+        {
+          "key": "default_bits",
+          "value": 2048,
+          "enabled": true
+        },
+        {
+          "key": "default_keyfile",
+          "value": "pvt.key.pem",
+          "enabled": true
+        },
+        {
+          "key": "distinguished_name",
+          "value": "req_distinguished_name",
+          "enabled": true
+        },
+        {
+          "key": "attributes",
+          "value": "req_attributes",
+          "enabled": true
+        },
+        {
+          "key": "x509_extensions",
+          "value": "v3_ca",
+          "enabled": true
+        },
+        {
+          "key": "input_password",
+          "value": "xenv",
+          "enabled": true
+        },
+        {
+          "key": "output_password",
+          "value": "xenv",
+          "enabled": true
+        },
+        {
+          "key": "string_mask",
+          "value": "utf8only",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "req_distinguished_name",
+        "settings": [
+        {
+          "key": "countryName",
+          "value": "Country Name (2 letter code)",
+          "enabled": true
+        },
+        {
+          "key": "countryName_default",
+          "value": "NL",
+          "enabled": true
+        },
+        {
+          "key": "countryName_min",
+          "value": 2,
+          "enabled": true
+        },
+        {
+          "key": "countryName_max",
+          "value": 2,
+          "enabled": true
+        },
+        {
+          "key": "stateOrProvinceName",
+          "value": "State or Province Name (full name)",
+          "enabled": true
+        },
+        {
+          "key": "stateOrProvinceName_default",
+          "value": "North-Holland",
+          "enabled": true
+        },
+        {
+          "key": "localityName",
+          "value": "Locality Name (eg, city)",
+          "enabled": true
+        },
+        {
+          "key": "localityName_default",
+          "value": "Limmen",
+          "enabled": true
+        },
+        {
+          "key": "0.organizationName",
+          "value": "Organization Name (eg, company)",
+          "enabled": true
+        },
+        {
+          "key": "0.organizationName_default",
+          "value": "D-Cubed",
+          "enabled": true
+        },
+        {
+          "key": "organizationalUnitName",
+          "value": "Organizational Unit Name (eg, section)",
+          "enabled": true
+        },
+        {
+          "key": "organizationalUnitName_default",
+          "value": "XENV",
+          "enabled": true
+        },
+        {
+          "key": "commonName",
+          "value": "Common Name (eg, YOUR name)",
+          "enabled": true
+        },
+        {
+          "key": "commonName_max",
+          "value": 127,
+          "enabled": true
+        },
+        {
+          "key": "emailAddress",
+          "value": "Email Address",
+          "enabled": true
+        },
+        {
+          "key": "emailAddress_max",
+          "value": 127,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "req_attributes",
+        "settings": [
+        {
+          "key": "challengePassword",
+          "value": "A challenge password",
+          "enabled": true
+        },
+        {
+          "key": "challengePassword_min",
+          "value": 4,
+          "enabled": true
+        },
+        {
+          "key": "challengePassword_max",
+          "value": 20,
+          "enabled": true
+        },
+        {
+          "key": "unstructuredName",
+          "value": "An optional company name",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "usr_cert",
+        "settings": [
+        {
+          "key": "basicConstraints",
+          "value": "CA:FALSE",
+          "enabled": true
+        },
+        {
+          "key": "nsComment",
+          "value": "OpenSSL Generated Certificate",
+          "enabled": true
+        },
+        {
+          "key": "subjectKeyIdentifier",
+          "value": "hash",
+          "enabled": true
+        },
+        {
+          "key": "authorityKeyIdentifier",
+          "value": "keyid,issuer",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "v3_req",
+        "settings": [
+        {
+          "key": "basicConstraints",
+          "value": "CA:FALSE",
+          "enabled": true
+        },
+        {
+          "key": "keyUsage",
+          "value": "nonRepudiation, digitalSignature, keyEncipherment",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "v3_ca",
+        "settings": [
+        {
+          "key": "subjectKeyIdentifier",
+          "value": "hash",
+          "enabled": true
+        },
+        {
+          "key": "authorityKeyIdentifier",
+          "value": "keyid:always,issuer",
+          "enabled": true
+        },
+        {
+          "key": "basicConstraints",
+          "value": "CA:true",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "crl_ext",
+        "settings": [
+        {
+          "key": "authorityKeyIdentifier",
+          "value": "keyid:always",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "proxy_cert_ext",
+        "settings": [
+        {
+          "key": "basicConstraints",
+          "value": "CA:FALSE",
+          "enabled": true
+        },
+        {
+          "key": "nsComment",
+          "value": "OpenSSL Generated Certificate",
+          "enabled": true
+        },
+        {
+          "key": "subjectKeyIdentifier",
+          "value": "hash",
+          "enabled": true
+        },
+        {
+          "key": "authorityKeyIdentifier",
+          "value": "keyid,issuer",
+          "enabled": true
+        },
+        {
+          "key": "proxyCertInfo",
+          "value": "critical,language:id-ppl-anyLanguage,pathlen:3,policy:foo",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "tsa",
+        "settings": [
+        {
+          "key": "default_tsa",
+          "value": "tsa_config",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "key": "tsa_config",
+        "settings": [
+        {
+          "key": "serial",
+          "value": "$dir/tsaserial",
+          "enabled": true
+        },
+        {
+          "key": "crypto_device",
+          "value": "builtin",
+          "enabled": true
+        },
+        {
+          "key": "signer_cert",
+          "value": "$dir/crt/tsa.cert.pem",
+          "enabled": true
+        },
+        {
+          "key": "certs",
+          "value": "$dir/crt/ca.cert.pem",
+          "enabled": true
+        },
+        {
+          "key": "signer_key",
+          "value": "$dir/pvt/tsa.key.pem",
+          "enabled": true
+        },
+        {
+          "key": "default_policy",
+          "value": "tsa_policy1",
+          "enabled": true
+        },
+        {
+          "key": "other_policies",
+          "value": "tsa_policy2, tsa_policy3",
+          "enabled": true
+        },
+        {
+          "key": "accuracy",
+          "value": "secs:1, millisecs:500, microsecs:100",
+          "enabled": true
+        },
+        {
+          "key": "clock_precision_digits",
+          "value": 0,
+          "enabled": true
+        },
+        {
+          "key": "ordering",
+          "value": "yes",
+          "enabled": true
+        },
+        {
+          "key": "tsa_name",
+          "value": "yes",
+          "enabled": true
+        },
+        {
+          "key": "ess_cert_id_chain",
+          "value": "no",
+          "enabled": true
+        }
+      ]
+    }
+    ]
+  }
+}

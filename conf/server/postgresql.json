@@ -1,0 +1,123 @@
+{
+  "server": "mysql",
+  "config": {
+    "sectionfmt": "#{0}",
+    "sections": [
+      {
+        "key": "FILE LOCATIONS",
+        "settings": [
+          {
+            "key": "data_directory",
+            "value": "{DEV_ROOT}/data/{TYPE}/{NAME}/{VERSION}",
+            "enabled": true
+          },
+          {
+            "key": "hba_file",
+            "value": "{DEV_ROOT}/{TYPE}/{NAME}/{VERSION}/pg_hba.conf",
+            "enabled": true
+          },
+          {
+            "key": "ident_file",
+            "value": "{DEV_ROOT}/{TYPE}/{NAME}/{VERSION}/pg_ident.conf",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "CONNECTIONS AND AUTHENTICATION",
+        "settings": [
+          {
+            "key": "listen_addresses",
+            "value": "*",
+            "enabled": true
+          },
+          {
+            "key": "port",
+            "value": 5432,
+            "enabled": true
+          },
+          {
+            "key": "max_connections",
+            "value": 100,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "RESOURCE USAGE (except WAL)",
+        "settings": [
+          {
+            "key": "shared_buffers",
+            "value": "32MB",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "ERROR REPORTING AND LOGGING",
+        "settings": [
+          {
+            "key": "log_destination",
+            "value": "stderr",
+            "enabled": true
+          },
+          {
+            "key": "logging_collector",
+            "value": "on",
+            "enabled": true
+          },
+          {
+            "key": "log_directory",
+            "value": "{DEV_ROOT}/data/{TYPE}/{NAME}/{VERSION}",
+            "enabled": true
+          },
+          {
+            "key": "log_filename",
+            "value": "postgresql.log",
+            "enabled": true
+          },
+          {
+            "key": "log_file_mode",
+            "value": 777,
+            "enabled": true
+          },
+          {
+            "key": "log_truncate_on_rotation",
+            "value": "off",
+            "enabled": true
+          },
+          {
+            "key": "log_rotation_age",
+            "value": 0,
+            "enabled": true
+          },
+          {
+            "key": "log_rotation_size",
+            "value": 0,
+            "enabled": true
+          },
+          {
+            "key": "client_min_messages",
+            "value": "notice",
+            "enabled": true
+          },
+          {
+            "key": "log_min_messages",
+            "value": "warning",
+            "enabled": true
+          },
+          {
+            "key": "log_min_error_statement",
+            "value": "error",
+            "enabled": true
+          },
+          {
+            "key": "log_min_duration_statement",
+            "value": -1,
+            "enabled": true
+          }
+        ]
+      }
+    ]
+  }
+}

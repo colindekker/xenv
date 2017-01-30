@@ -1,0 +1,86 @@
+[client]
+;password = your_password
+port = 3306
+socket = /tmp/mysql.sock
+default-character-set=UTF8
+
+[xenv-mysql]
+;skip-grant-tables
+port = 3306
+socket = /tmp/mysql.sock
+key_buffer_size = 64M
+max_allowed_packet = 16M
+table_definition_cache = 600
+sort_buffer_size = 2M
+net_buffer_length = 8K
+read_buffer_size = 2M
+read_rnd_buffer_size = 2M
+myisam_sort_buffer_size = 32M
+basedir="D:/xenv/server/mysql/on"
+log-error=D:/xenv.tmp/server/mysql/${MARIADB_VERSION}mysql.log
+log_error_verbosity=2
+datadir="/xenv/data/mysql/${MARIADB_VERSION}"
+lc-messages-dir="/xenv/server/mysql/on/share"
+lc-messages=en_US
+default-storage-engine=INNODB
+; default_tmp_storage_engine=INNODB
+secure_file_priv="/xenv.tmp/server/mysql"
+skip-ssl
+explicit_defaults_for_timestamp=true
+;skip-networking
+skip-federated
+;log-bin=mysql-bin
+;binlog_format=mixed
+server-id = 1
+skip-slave-start
+;server-id       = 2
+;master-host     = <hostname>
+;master-user     = <username>
+;master-password = <password>
+;master-port     = <port>
+;log-bin=mysql-bin
+early-plugin-load=""
+;innodb_data_home_dir = C:/mysql/data/
+innodb_data_file_path = ibdata1:12M:autoextend
+;innodb_log_group_home_dir = C:/mysql/data/
+;innodb_log_arch_dir = C:/mysql/data/
+; You can set .._buffer_pool_size up to 50 - 80 %
+; of RAM but beware of setting memory usage too high
+innodb_buffer_pool_size = 32M
+;innodb_additional_mem_pool_size = 2M
+; Set .._log_file_size to 25 % of buffer pool size
+innodb_log_file_size = 5M
+innodb_log_buffer_size = 8M
+innodb_flush_log_at_trx_commit = 1
+innodb_lock_wait_timeout = 60
+innodb_flush_method=normal
+
+[mysqldump]
+quick
+max_allowed_packet=32M
+
+[mysql]
+no-auto-rehash
+port=3306
+
+[isamchk]
+key_buffer_size = 20M
+sort_buffer_size = 20M
+read_buffer_size = 2M
+write_buffer_size = 2M
+
+[myisamchk]
+key_buffer_size = 20M
+sort_buffer_size = 20M
+read_buffer_size = 2M
+write_buffer_size = 2M
+
+[mysqlhotcopy]
+interactive-timeout
+
+[mysqld]
+port = 3306
+
+[mysqladmin]
+user=root
+port=3306

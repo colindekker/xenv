@@ -1,0 +1,41 @@
+{
+  "runtime":"node",
+  "envvars":[
+
+  ],
+  "config": {
+    "files": [
+      {
+        "path":"./etc",
+        "name":"npmrc",
+        "settings": [
+          {
+            "key":"cache",
+            "value": "{DEV_TEMP}/{TYPE}/{NAME}/{VERSION}",
+            "enabled":true
+          },
+          {
+            "key": "globalconfig",
+            "value": ".",
+            "enabled": true
+          },
+          {
+            "key": "globalignorefile",
+            "value": "./.npmignore",
+            "enabled": true
+          },
+          {
+            "key": "init-module",
+            "value": "./.npm-init.js",
+            "enabled": true
+          },
+          {
+            "key": "",
+            "value": "{USERPROFILE}/.npmrc",
+            "enabled": true
+          }
+        ]
+      }
+    ]
+  }
+}

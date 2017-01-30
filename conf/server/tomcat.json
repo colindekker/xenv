@@ -1,0 +1,7 @@
+{
+  "tomcat": {
+    "Env": [
+      {"CATALINA_HOME":""}
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+#==========================  Modules configuration ============================
+metricbeat.modules:
+- module: system
+  metricsets:
+    - cpu
+    # System Load stats
+    #- load
+    # Per CPU core stats
+    #- core
+    # IO stats
+    #- diskio
+    # Per filesystem stats
+    - filesystem
+    # File system summary stats
+    - fsstat
+    # Memory stats
+    - memory
+    # Network stats
+    - network
+    # Per process stats
+    - process
+  enabled: true
+  period: 10s
+  processes: ['.*']
+
+#================================ General =====================================
+#name:
+#tags: ["service-X", "web-tier"]
+#fields:
+#  env: staging
+
+#================================ Outputs =====================================
+
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+  #protocol: "https"
+  #username: "elastic"
+  #password: "changeme"
+
+#output.logstash:
+  #hosts: ["localhost:5044"]
+  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate: "/etc/pki/client/cert.pem"
+  #ssl.key: "/etc/pki/client/cert.key"
+
+#================================ Logging =====================================
+#logging.level: debug
+#logging.selectors: ["*"]

@@ -1,0 +1,189 @@
+{
+  "server":"mongodb",
+  "envvars": [
+    {
+      "name": "MONGODB_HOME",
+      "value": ""
+    }
+  ],
+  "config": {
+    "sectionfmt": "(/t*{depth}){0}:",
+    "sections": [
+      {
+        "key": "systemLog",
+        "settings": [
+          {
+            "key": "destination",
+            "value": "file",
+            "enabled": true
+          },
+          {
+            "key": "logAppend",
+            "value": true,
+            "enabled": true
+          },
+          {
+            "key": "path",
+            "value": "{DEV_ROOT}/logs/{TYPE}/{NAME}/{VERSION}/mongod.log",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "storage",
+        "settings": [
+          {
+            "key": "dbPath",
+            "value": "{DEV_ROOT}/data/{TYPE}/{NAME}/{VERSION}",
+            "enabled": true,
+            "settings": {
+              "key":"journal",
+              "value": [
+                {
+                  "key": "enabled",
+                  "value": true,
+                  "enabled": true
+                }
+              ]
+            }
+          },
+          {
+            "key": "engine",
+            "value": null,
+            "enabled": false
+          },
+          {
+            "key": "mmapv1",
+            "value": null,
+            "enabled": false
+          },
+          {
+            "key": "wiredTiger",
+            "value": null,
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "processManagement",
+        "settings": [
+          {
+            "key": "fork",
+            "value": true,
+            "enabled": true
+          },
+          {
+            "key": "pidFilePath",
+            "value": "{DEV_ROOT}/{TYPE}/{NAME}/{VERSION}/mongod.pid",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "net",
+        "settings": [
+          {
+            "key": "port",
+            "value": 27017,
+            "enabled": true
+          },
+          {
+            "key": "bindIp",
+            "value": "127.0.0.1",
+            "enabled": true //Listen to local interface only, comment to listen on all interfaces
+          }
+        ]
+      },
+      {
+        "key": "security",
+        "settings": [
+          {
+            "key": "",
+            "value": 1,
+            "enabled": false
+          },
+          {
+            "key": "",
+            "value": "",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "operationProfiling",
+        "settings": [
+          {
+            "key": "",
+            "value": 1,
+            "enabled": false
+          },
+          {
+            "key": "",
+            "value": "",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "replication",
+        "settings": [
+          {
+            "key": "",
+            "value": 1,
+            "enabled": false
+          },
+          {
+            "key": "",
+            "value": "",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "sharding",
+        "settings": [
+          {
+            "key": "",
+            "value": 1,
+            "enabled": false
+          },
+          {
+            "key": "",
+            "value": "",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "auditLog",
+        "settings": [
+          {
+            "key": "",
+            "value": 1,
+            "enabled": false
+          },
+          {
+            "key": "",
+            "value": "",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "snmp",
+        "settings": [
+          {
+            "key": "",
+            "value": 1,
+            "enabled": false
+          },
+          {
+            "key": "",
+            "value": "",
+            "enabled": false
+          }
+        ]
+      }
+    ]
+  }
+}

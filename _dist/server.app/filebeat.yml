@@ -1,0 +1,8 @@
+filebeat.prospectors:
+- input_type: log
+  paths:
+    - E:\XENV.TMP\logs\server\*\*.log
+    - E:\XENV.TMP\logs\server.app\*\*.log
+    - E:\XENV.TMP\logs\runtime\*\*.log
+output.elasticsearch:
+  hosts: ["localhost:9200"]

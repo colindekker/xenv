@@ -1,0 +1,267 @@
+{
+  "server":"couchdb",
+  "config": {
+    "sectionfmt": "[{0}]",
+    "sections": [
+      {
+        "key": "couchdb",
+        "settings": [
+          {
+            "key": "max_document_size",
+            "value":4294967296,
+            "enabled":false
+          },
+          {
+            "key": "os_process_timeout",
+            "value": 5000,
+            "enabled": false
+          },
+          {
+            "key": "uuid",
+            "value": "3a65150586333ad8a2159efb3e0c194d",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "couch_peruser",
+        "settings": [
+          {
+            "key": "enable",
+            "value": true,
+            "enabled": false
+          },
+          {
+            "key": "delete_dbs",
+            "value": true,
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "chttpd",
+        "settings": [
+          {
+            "key": "server_options",
+            "value": [
+              {
+                "backlog":128
+              },
+              {
+                "acceptor_pool_size": 16
+              }
+            ],
+            "enabled": false
+          },
+          {
+            "key": "socket_options",
+            "value": [
+              {
+                "recbuf":262144
+              },
+              {
+                "sndbuf":262144
+              },
+              {
+                "nodelay":true
+              }
+            ],
+            "enabled": false
+          },
+          {
+            "key": "bind_address",
+            "value": "0.0.0.0",
+            "enabled": true
+          },
+          {
+            "key": "port",
+            "value": 5984,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "httpd",
+        "settings": [
+          {
+            "key": "WWW-Authenticate",
+            "value": "Basic realm=\"administrator\"",
+            "enabled": false
+          },
+          {
+            "key": "config_whitelist",
+            "value": [
+              {
+                "httpd":
+                "config_whitelist"
+              },
+              {
+                "log":"level"
+              }
+            ],
+            "enabled": false
+          },
+          {
+            "key": "enable_cors",
+            "value": true,
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "query_servers",
+        "settings": [
+          {
+            "key": "nodejs",
+            "value": "/usr/local/bin/couchjs-node /path/to/couchdb/share/server/main.js",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "httpd_global_handlers",
+        "settings": [
+          {
+            "key": "_google",
+            "value": "",//{couch_httpd_proxy, handle_proxy_req, <<"http://www.google.com">>}
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "couch_httpd_auth",
+        "settings": [
+          {
+            "key": "require_valid_user",
+            "value": false,
+            "enabled": false
+          },
+          {
+            "key": "secret",
+            "value": "28bb04ee4dab80654a0cdbf4790bbbc0",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "os_daemons",
+        "settings": [
+          {
+            "key": "foo",
+            "value": "/path/to/command -with args",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "daemons",
+        "settings": [
+          {
+            "key": "httpsd",
+            "value": "",// {couch_httpd, start_link, [https]}
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "ssl",
+        "settings": [
+          {
+            "key": "httpsd",
+            "value": "",
+            "enabled": false
+          }
+          /*
+          ;cert_file = /full/path/to/server_cert.pem
+          ;key_file = /full/path/to/server_key.pem
+          ;password = somepassword
+          ; set to true to validate peer certificates
+          ;verify_ssl_certificates = false
+          ; Set to true to fail if the client does not send a certificate. Only used if verify_ssl_certificates is true.
+          ;fail_if_no_peer_cert = false
+          ; Path to file containing PEM encoded CA certificates (trusted certificates used for verifying a peer certificate).  May be omitted if you do not want to verify the peer.
+          ;cacert_file = /full/path/to/cacertf
+          ; The verification fun (optional) if not specified, the default verification fun will be used.
+          ;verify_fun = {Module, VerifyFun}
+          ; maximum peer certificate depth
+          ;ssl_certificate_max_depth = 1
+
+          ; Reject renegotiations that do not live up to RFC 5746.
+          ;secure_renegotiate = true
+          ; The cipher suites that should be supported. Can be specified in erlang format "{ecdhe_ecdsa,aes_128_cbc,sha256}" or in OpenSSL format "ECDHE-ECDSA-AES128-SHA256".
+          ;ciphers = ["ECDHE-ECDSA-AES128-SHA256", "ECDHE-ECDSA-AES128-SHA"]
+          ; The SSL/TLS versions to support
+          ;tls_versions = [tlsv1, 'tlsv1.1', 'tlsv1.2']
+          */
+        ]
+      },
+      {
+        "key": "vhosts",
+        "settings": [
+          {
+            "key": "example.com:PORT",
+            "value": "/database/",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "update_notification",
+        "settings": [
+          {
+            "key": "unique notifier name",
+            "value": "/full/path/to/exe -with cmdlinearg",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "admins",
+        "settings": [
+          {
+            "key": "admin",
+            "value": "p@ssw0rd",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "cors",
+        "settings": [
+          {
+            "key": "origins",
+            "value": ["*"], // [url,url]
+            "enabled": true
+          },
+          {
+            "key": "credentials",
+            "value": true,
+            "enabled": true
+          },
+          {
+            "key": "headers",
+            "value": [
+              "accept",
+              "authorization",
+              "content-type",
+              "origin",
+              "referer"
+            ],
+            "enabled": true
+          },
+          {
+            "key": "methods",
+            "value": [
+              "GET",
+              "PUT",
+              "POST",
+              "HEAD",
+              "DELETE"
+            ],
+            "enabled": true
+          }
+        ]
+      }
+    ]
+  }
+}

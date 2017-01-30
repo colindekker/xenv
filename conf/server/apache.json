@@ -1,0 +1,797 @@
+{
+  "server":"apache",
+  "envvars": [
+    {
+      "name": "APACHE24",
+      "value": ""
+    },
+    {
+      "name": "VERSION_APACHE",
+      "value": "%APACHE_VERSION%"
+    },
+    {
+      "name": "ADMIN_APACHE",
+      "value": "admin@example.com"
+    },
+    {
+      "name": "INSTALL_DIR",
+      "value": ""
+    },
+    {
+      "name": "APACHE_DIR",
+      "value": ""
+    }
+  ],
+  "config": {
+    "sectionfmt": "#{0}",
+    "sections": [
+      {
+        "key": "Base",
+        "settings": [
+          {
+            "key": "Timeout",
+            "value": 60,
+            "enabled": true
+          },
+          {
+            "key": "KeepAlive",
+            "value": "On",
+            "enabled": true
+          },
+          {
+            "key": "MaxKeepAliveRequests",
+            "value": 100,
+            "enabled": true
+          },
+          {
+            "key": "KeepAliveTimeout",
+            "value": 5,
+            "enabled": true
+          },
+          {
+            "key": "UseCanonicalName",
+            "value": "Off",
+            "enabled": true
+          },
+          {
+            "key": "AccessFileName",
+            "value": ".htaccess",
+            "enabled": true
+          },
+          {
+            "key": "ServerTokens",
+            "value": "Full",
+            "enabled": true
+          },
+          {
+            "key": "ServerSignature",
+            "value": "Off",
+            "enabled": true
+          },
+          {
+            "key": "HostnameLookups",
+            "value": "Off",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "Version",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "$VERSION_APACHE$",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "Listen",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "0.0.0.0:80",
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": "[::0]:80",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "LoadModule",
+        "settings": [
+          {
+            "enabled": true,
+            "access_compat_module": "modules/mod_access_compat.so"
+          },
+          {
+            "enabled": true,
+            "actions_module": "modules/mod_actions.so"
+          },
+          {
+            "enabled": true,
+            "alias_module": "modules/mod_alias.so"
+          },
+          {
+            "enabled": true,
+            "allowmethods_module": "modules/mod_allowmethods.so"
+          },
+          {
+            "enabled": true,
+            "asis_module": "modules/mod_asis.so"
+          },
+          {
+            "enabled": true,
+            "auth_basic_module": "modules/mod_auth_basic.so"
+          },
+          {
+            "enabled": false,
+            "auth_digest_module": "modules/mod_auth_digest.so"
+          },
+          {
+            "enabled": false,
+            "auth_form_module": "modules/mod_auth_form.so"
+          },
+          {
+            "enabled": false,
+            "authn_anon_module": "modules/mod_authn_anon.so"
+          },
+          {
+            "enabled": true,
+            "authn_core_module": "modules/mod_authn_core.so"
+          },
+          {
+            "enabled": false,
+            "authn_dbd_module": "modules/mod_authn_dbd.so"
+          },
+          {
+            "enabled": false,
+            "authn_dbm_module": "modules/mod_authn_dbm.so"
+          },
+          {
+            "enabled": true,
+            "authn_file_module": "modules/mod_authn_file.so"
+          },
+          {
+            "enabled": false,
+            "authn_socache_module": "modules/mod_authn_socache.so"
+          },
+          {
+            "enabled": false,
+            "authnz_fcgi_module": "modules/mod_authnz_fcgi.so"
+          },
+          {
+            "enabled": false,
+            "authnz_ldap_module": "modules/mod_authnz_ldap.so"
+          },
+          {
+            "enabled": true,
+            "authz_core_module": "modules/mod_authz_core.so"
+          },
+          {
+            "enabled": false,
+            "authz_dbd_module": "modules/mod_authz_dbd.so"
+          },
+          {
+            "enabled": false,
+            "authz_dbm_module": "modules/mod_authz_dbm.so"
+          },
+          {
+            "enabled": true,
+            "authz_groupfile_module": "modules/mod_authz_groupfile.so"
+          },
+          {
+            "enabled": true,
+            "authz_host_module": "modules/mod_authz_host.so"
+          },
+          {
+            "enabled": false,
+            "authz_owner_module": "modules/mod_authz_owner.so"
+          },
+          {
+            "enabled": true,
+            "authz_user_module": "modules/mod_authz_user.so"
+          },
+          {
+            "enabled": true,
+            "autoindex_module": "modules/mod_autoindex.so"
+          },
+          {
+            "enabled": false,
+            "buffer_module": "modules/mod_buffer.so"
+          },
+          {
+            "enabled": false,
+            "cache_module": "modules/mod_cache.so"
+          },
+          {
+            "enabled": false,
+            "cache_disk_module": "modules/mod_cache_disk.so"
+          },
+          {
+            "enabled": false,
+            "cache_socache_module": "modules/mod_cache_socache.so"
+          },
+          {
+            "enabled": false,
+            "cern_meta_module": "modules/mod_cern_meta.so"
+          },
+          {
+            "enabled": true,
+            "cgi_module": "modules/mod_cgi.so"
+          },
+          {
+            "enabled": false,
+            "charset_lite_module": "modules/mod_charset_lite.so"
+          },
+          {
+            "enabled": false,
+            "data_module": "modules/mod_data.so"
+          },
+          {
+            "enabled": false,
+            "dav_module": "modules/mod_dav.so"
+          },
+          {
+            "enabled": false,
+            "dav_fs_module": "modules/mod_dav_fs.so"
+          },
+          {
+            "enabled": false,
+            "dav_lock_module": "modules/mod_dav_lock.so"
+          },
+          {
+            "enabled": false,
+            "dbd_module": "modules/mod_dbd.so"
+          },
+          {
+            "enabled": false,
+            "deflate_module": "modules/mod_deflate.so"
+          },
+          {
+            "enabled": true,
+            "dir_module": "modules/mod_dir.so"
+          },
+          {
+            "enabled": false,
+            "dumpio_module": "modules/mod_dumpio.so"
+          },
+          {
+            "enabled": true,
+            "env_module": "modules/mod_env.so"
+          },
+          {
+            "enabled": false,
+            "expires_module": "modules/mod_expires.so"
+          },
+          {
+            "enabled": false,
+            "ext_filter_module": "modules/mod_ext_filter.so"
+          },
+          {
+            "enabled": false,
+            "file_cache_module": "modules/mod_file_cache.so"
+          },
+          {
+            "enabled": false,
+            "filter_module": "modules/mod_filter.so"
+          },
+          {
+            "enabled": false,
+            "http2_module": "modules/mod_http2.so"
+          },
+          {
+            "enabled": false,
+            "headers_module": "modules/mod_headers.so"
+          },
+          {
+            "enabled": false,
+            "heartbeat_module": "modules/mod_heartbeat.so"
+          },
+          {
+            "enabled": false,
+            "heartmonitor_module": "modules/mod_heartmonitor.so"
+          },
+          {
+            "enabled": false,
+            "ident_module": "modules/mod_ident.so"
+          },
+          {
+            "enabled": false,
+            "imagemap_module": "modules/mod_imagemap.so"
+          },
+          {
+            "enabled": true,
+            "include_module": "modules/mod_include.so"
+          },
+          {
+            "enabled": false,
+            "info_module": "modules/mod_info.so"
+          },
+          {
+            "enabled": true,
+            "isapi_module": "modules/mod_isapi.so"
+          },
+          {
+            "enabled": false,
+            "lbmethod_bybusyness_module": "modules/mod_lbmethod_bybusyness.so"
+          },
+          {
+            "enabled": false,
+            "lbmethod_byrequests_module": "modules/mod_lbmethod_byrequests.so"
+          },
+          {
+            "enabled": false,
+            "lbmethod_bytraffic_module": "modules/mod_lbmethod_bytraffic.so"
+          },
+          {
+            "enabled": false,
+            "lbmethod_heartbeat_module": "modules/mod_lbmethod_heartbeat.so"
+          },
+          {
+            "enabled": false,
+            "ldap_module": "modules/mod_ldap.so"
+          },
+          {
+            "enabled": false,
+            "logio_module": "modules/mod_logio.so"
+          },
+          {
+            "enabled": true,
+            "log_config_module": "modules/mod_log_config.so"
+          },
+          {
+            "enabled": false,
+            "log_debug_module": "modules/mod_log_debug.so"
+          },
+          {
+            "enabled": false,
+            "log_forensic_module": "modules/mod_log_forensic.so"
+          },
+          {
+            "enabled": false,
+            "lua_module": "modules/mod_lua.so"
+          },
+          {
+            "enabled": false,
+            "macro_module": "modules/mod_macro.so"
+          },
+          {
+            "enabled": true,
+            "mime_module": "modules/mod_mime.so"
+          },
+          {
+            "enabled": false,
+            "mime_magic_module": "modules/mod_mime_magic.so"
+          },
+          {
+            "enabled": true,
+            "negotiation_module": "modules/mod_negotiation.so"
+          },
+          {
+            "enabled": false,
+            "proxy_module": "modules/mod_proxy.so"
+          },
+          {
+            "enabled": false,
+            "proxy_ajp_module": "modules/mod_proxy_ajp.so"
+          },
+          {
+            "enabled": false,
+            "proxy_balancer_module": "modules/mod_proxy_balancer.so"
+          },
+          {
+            "enabled": false,
+            "proxy_connect_module": "modules/mod_proxy_connect.so"
+          },
+          {
+            "enabled": false,
+            "proxy_express_module": "modules/mod_proxy_express.so"
+          },
+          {
+            "enabled": false,
+            "proxy_fcgi_module": "modules/mod_proxy_fcgi.so"
+          },
+          {
+            "enabled": false,
+            "proxy_ftp_module": "modules/mod_proxy_ftp.so"
+          },
+          {
+            "enabled": false,
+            "proxy_html_module": "modules/mod_proxy_html.so"
+          },
+          {
+            "enabled": false,
+            "proxy_http_module": "modules/mod_proxy_http.so"
+          },
+          {
+            "enabled": false,
+            "proxy_http2_module": "modules/mod_proxy_http2.so"
+          },
+          {
+            "enabled": false,
+            "proxy_scgi_module": "modules/mod_proxy_scgi.so"
+          },
+          {
+            "enabled": false,
+            "proxy_wstunnel_module": "modules/mod_proxy_wstunnel.so"
+          },
+          {
+            "enabled": false,
+            "ratelimit_module": "modules/mod_ratelimit.so"
+          },
+          {
+            "enabled": false,
+            "reflector_module": "modules/mod_reflector.so"
+          },
+          {
+            "enabled": false,
+            "remoteip_module": "modules/mod_remoteip.so"
+          },
+          {
+            "enabled": false,
+            "request_module": "modules/mod_request.so"
+          },
+          {
+            "enabled": false,
+            "reqtimeout_module": "modules/mod_reqtimeout.so"
+          },
+          {
+            "enabled": false,
+            "rewrite_module": "modules/mod_rewrite.so"
+          },
+          {
+            "enabled": false,
+            "sed_module": "modules/mod_sed.so"
+          },
+          {
+            "enabled": false,
+            "session_module": "modules/mod_session.so"
+          },
+          {
+            "enabled": false,
+            "session_cookie_module": "modules/mod_session_cookie.so"
+          },
+          {
+            "enabled": false,
+            "session_crypto_module": "modules/mod_session_crypto.so"
+          },
+          {
+            "enabled": false,
+            "session_dbd_module": "modules/mod_session_dbd.so"
+          },
+          {
+            "enabled": true,
+            "setenvif_module": "modules/mod_setenvif.so"
+          },
+          {
+            "enabled": false,
+            "slotmem_plain_module": "modules/mod_slotmem_plain.so"
+          },
+          {
+            "enabled": false,
+            "slotmem_shm_module": "modules/mod_slotmem_shm.so"
+          },
+          {
+            "enabled": false,
+            "socache_dbm_module": "modules/mod_socache_dbm.so"
+          },
+          {
+            "enabled": false,
+            "socache_memcache_module": "modules/mod_socache_memcache.so"
+          },
+          {
+            "enabled": false,
+            "socache_shmcb_module": "modules/mod_socache_shmcb.so"
+          },
+          {
+            "enabled": false,
+            "speling_module": "modules/mod_speling.so"
+          },
+          {
+            "enabled": false,
+            "ssl_module": "modules/mod_ssl.so"
+          },
+          {
+            "enabled": false,
+            "status_module": "modules/mod_status.so"
+          },
+          {
+            "enabled": false,
+            "substitute_module": "modules/mod_substitute.so"
+          },
+          {
+            "enabled": false,
+            "unique_id_module": "modules/mod_unique_id.so"
+          },
+          {
+            "enabled": false,
+            "userdir_module": "modules/mod_userdir.so"
+          },
+          {
+            "enabled": false,
+            "usertrack_module": "modules/mod_usertrack.so"
+          },
+          {
+            "enabled": false,
+            "version_module": "modules/mod_version.so"
+          },
+          {
+            "enabled": false,
+            "vhost_alias_module": "modules/mod_vhost_alias.so"
+          },
+          {
+            "enabled": false,
+            "watchdog_module": "modules/mod_watchdog.so"
+          },
+          {
+            "enabled": false,
+            "xml2enc_module": "modules/mod_xml2enc.so"
+          }
+        ]
+      },
+      {
+        "key": "ServerAdmin",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "$ADMIN_APACHE$",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "DirectoryIndex",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": [
+              "index.php",
+              "index.php3",
+              "index.html",
+              "index.htm"
+            ],
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "ScriptAlias",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "/cgi-bin/": "${INSTALL_DIR}/cgi-bin/"
+            },
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "TypesConfig",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "conf/mime.types",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "AddEncoding",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "x-compress":[
+                ".Z"
+              ]
+            },
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "x-gzip": [
+                ".gz",
+                ".tgz"
+              ]
+            },
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "AddHandler",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "cgi-script.cgi": "${INSTALL_DIR}/cgi-bin/"
+            },
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "AddType",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "application/x-compress": [
+                ".Z"
+              ]
+            },
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "application/x-gzip": [
+                ".gz",
+                ".tgz"
+              ]
+            },
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "x-httpd-php": [
+                ".php",
+                ".php3"
+              ]
+            },
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "SSLRandomSeed",
+        "dependson": "~/config/sections[key='LoadModule']/settings[key='ssl_module']",
+        //<IfModule ssl_module>
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "startup": "builtin"
+            },
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "connect": "builtin"
+            },
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "MIMEMagicFile",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "conf/magic",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "EnableMMAP",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "off",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "EnableSendfile",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "off",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "AcceptFilter",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "http",
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": "https",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "MaxRanges",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "unlimited",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "ErrorDocument",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "500": "The server made a boo boo."
+            },
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "404": "/missing.html"
+            },
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "404": "/cgi-bin/missing_handler.pl"
+            },
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": {
+              "402": "http://www.example.com/subscription_info.html"
+            },
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "Include",
+        "settings": [
+          {
+            "key": "$SECTION_KEY$",
+            "value": "${INSTALL_DIR}/alias/*",
+            "enabled": true
+          },
+          {
+            "key": "$SECTION_KEY$",
+            "value": "${INSTALL_DIR}/vhost/*",
+            "enabled": true
+          }
+        ]
+      }
+      /*
+      # Configure mod_proxy_html to understand HTML4/XHTML1
+      <IfModule proxy_html_module>
+      Include conf/extra/proxy-html.conf
+      </IfModule>
+      */
+      /*
+      #Include conf/extra/httpd-mpm.conf #Server-poolmanagement(MPMspecific)
+      #Include conf/extra/httpd-multilang-errordoc.conf #Multi-languageerrormessages
+      Include conf/extra/httpd-autoindex.conf #Fancydirectorylistings
+      #Include conf/extra/httpd-languages.conf #Languagesettings
+      #Include conf/extra/httpd-userdir.conf #Userhomedirectories
+      #Include conf/extra/httpd-info.conf #Real-timeinfoonrequestsandconfiguration
+      #Include conf/extra/httpd-manual.conf #LocalaccesstotheApacheHTTPServerManual
+      #Include conf/extra/httpd-dav.conf #Distributedauthoringandversioning(WebDAV)
+      #Include conf/extra/httpd-default.conf #Variousdefaultsettings
+      #Include conf/extra/httpd-ssl.conf //#Secure(SSL/TLS)connections
+    */
+    ]
+  }
+}

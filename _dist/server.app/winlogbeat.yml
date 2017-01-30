@@ -1,0 +1,28 @@
+winlogbeat.event_logs:
+  - name: Application
+    ignore_older: 72h
+  - name: Security
+  - name: System
+
+#================================ General =====================================
+#name:
+#tags: ["service-X", "web-tier"]
+#fields:
+#  env: staging
+
+#================================ Outputs =====================================
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+  #protocol: "https"
+  #username: "elastic"
+  #password: "changeme"
+
+#output.logstash:
+  #hosts: ["localhost:5044"]
+  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate: "/etc/pki/client/cert.pem"
+  #ssl.key: "/etc/pki/client/cert.key"
+
+#================================ Logging =====================================
+#logging.level: debug
+#logging.selectors: ["*"]

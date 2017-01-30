@@ -1,0 +1,1 @@
+%XENVS%\mariadb\on\bin\mysqld.exe --install --defaults-file="D:/XENV/server/mariadb/_shared/conf/my.ini" --basedir="D:/XENV/server/mariadb/%MARIADB_VERSION%" --datadir="D:/XENV/data/server/mariadb/%MARIADB_VERSION%" --log-error="D:/XENV.TMP/logs/server/mariadb/mariadb.log"

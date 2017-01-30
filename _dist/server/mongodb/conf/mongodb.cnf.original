@@ -1,0 +1,29 @@
+systemLog: 
+   destination: file 
+   logAppend: true 
+   timeStampFormat: iso8601-utc 
+storage: 
+  directoryPerDB: true 
+  journal: 
+    enabled: true 
+  engine: "wiredTiger"
+  wiredTiger: 
+    engineConfig: 
+      cacheSizeGB: 8 
+      journalCompressor: zlib 
+    collectionConfig: 
+      blockCompressor: zlib 
+    indexConfig:
+      prefixCompression: true
+net: 
+  bindIp: 127.0.0.1 
+  port: 27017
+setParameter: 
+  enableLocalhostAuthBypass: false 
+processManagement: 
+  windowsService: 
+    serviceName: "xenv-mongodb" 
+    displayName: "xenv-mongodb" 
+    description: "MongoDB Server Instance running on 27017" 
+    serviceUser: xenv
+    servicePassword: Password123 

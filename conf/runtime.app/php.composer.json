@@ -1,0 +1,6 @@
+{
+  "runtime": "php",
+  "runtime-app": "composer",
+  "envvars": [],
+  "config": {}
+}

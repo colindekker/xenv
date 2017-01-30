@@ -1,0 +1,18 @@
+ECHO Copy library DLLs to root dir
+    COPY /Y "%XENV%\%XENV_SERVICE_TYPE%\%XENV_SERVICE%\%XENV_SERVICE_VERSION%\bin\*.dll" "%XENV%\%XENV_SERVICE_TYPE%\%XENV_SERVICE%\%XENV_SERVICE_VERSION%"
+  ECHO   - starting "%XENV%\%XENV_SERVICE_TYPE%\%XENV_SERVICE%\%XENV_SERVICE_VERSION%\bin\couchdb.cmd
+    START cmd /C "%XENV%\%XENV_SERVICE_TYPE%\%XENV_SERVICE%\%XENV_SERVICE_VERSION%\bin\couchdb.cmd
+  ECHO   - wait 5s 
+    PING 127.0.0.1 -n 6 > nul
+  ECHO   - default user
+  CALL :CHECKCURL "!ADMIN_USER_URL!" "errornot_found"
+    CURL -X PUT http://127.0.0.1:5986/_users/org.couchdb.user:admin -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"name\": \"admin\", \"password\": \"Password123\", \"roles\": [], \"type\": \"user\"}"
+  ECHO   - default database_dir
+    CURL -X PUT http://127.0.0.1:5986/xenv
+  ECHO   - admin
+    CURL -s -X PUT http://127.0.0.1:5984/_node/%XENV_SERVICE_ID%@%ComputerName%/_config/admins/admin -d "\"%XENV_USER_PWD%\""
+    CURL -s -X PUT http://127.0.0.1:5986/_config/admins/admin -d "\"Password123\""
+  ECHO   - config complete, killing couchdb config instance
+    TASKKILL /IM erl.exe /F 
+
+  ENDLOCAL

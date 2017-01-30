@@ -1,0 +1,213 @@
+{
+  "server":"mysql",
+  "config": {
+    "sectionfmt":"[{0}]",
+    "sections": [
+      {
+        "key": "client",
+        "settings": [
+          {
+            "key": "port",
+            "value": 3306,
+            "enabled": true
+          },
+          {
+            "key": "socket",
+            "value": "{DEV_TEMP}/tmp/mysql.sock",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "mysqld",
+        "settings": [
+          {
+            "key": "port",
+            "value": 3306,
+            "enabled": true
+          },
+          {
+            "key": "socket",
+            "value": "{DEV_TEMP}/{TYPE}/{NAME}/{VERSION}/mysql.sock",
+            "enabled": true
+          },
+          {
+            "key": "key_buffer",
+            "value": "16M",
+            "enabled": true
+          },
+          {
+            "key": "max_allowed_packet",
+            "value": "1M",
+            "enabled": true
+          },
+          {
+            "key": "sort_buffer_size",
+            "value": "512K",
+            "enabled": true
+          },
+          {
+            "key": "net_buffer_length",
+            "value": "8K",
+            "enabled": true
+          },
+          {
+            "key": "read_buffer_size",
+            "value": "256K",
+            "enabled": true
+          },
+          {
+            "key": "read_rnd_buffer_size",
+            "value": "512K",
+            "enabled": true
+          },
+          {
+            "key": "myisam_sort_buffer_size",
+            "value": "8M",
+            "enabled": true
+          },
+          {
+            "key": "basedir",
+            "value": "{DEV_ROOT}/{TYPE}/{NAME}/{VERSION}",
+            "enabled": true
+          },
+          {
+            "key": "log-error",
+            "value": "{DEV_ROOT}/logs/{TYPE}/{NAME}/{VERSION}",
+            "enabled": true
+          },
+          {
+            "key": "datadir",
+            "value": "{DEV_ROOT}/data/{TYPE}/{NAME}/{VERSION}",
+            "enabled": true
+          },
+          {
+            "key": "skip-federated",
+            "value": null,
+            "enabled": true
+          },
+          {
+            "key": "server-id",
+            "value": -1,
+            "enabled": true
+          },
+          {
+            "key": "innodb_buffer_pool_size",
+            "value": "16M",
+            "enabled": true
+          },
+          {
+            "key": "innodb_log_file_size",
+            "value": "5M",
+            "enabled": true
+          },
+          {
+            "key": "innodb_log_buffer_size",
+            "value": "8M",
+            "enabled": true
+          },
+          {
+            "key": "innodb_flush_log_at_trx_commit",
+            "value": 1,
+            "enabled": false
+          },
+          {
+            "key": "innodb_lock_wait_timeout",
+            "value": 50,
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "mysqldump",
+        "settings": [
+          {
+            "key": "quick",
+            "value": null,
+            "enabled": true
+          },
+          {
+            "key": "max_allowed_packet",
+            "value": "16M",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "mysql",
+        "settings": [
+          {
+            "key": "no-auto-rehash",
+            "value": null,
+            "enabled": true
+          },
+          {
+            "key": "safe-updates",
+            "value": null,
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "key": "isamchk",
+        "settings": [
+          {
+            "key": "key_buffer",
+            "value": "20M",
+            "enabled": true
+          },
+          {
+            "key": "sort_buffer_size",
+            "value": "20M",
+            "enabled": true
+          },
+          {
+            "key": "read_buffer",
+            "value": "2M",
+            "enabled": true
+          },
+          {
+            "key": "write_buffer",
+            "value": "2M",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "myisamchk",
+        "settings": [
+          {
+            "key": "key_buffer",
+            "value": "20M",
+            "enabled": true
+          },
+          {
+            "key": "sort_buffer_size",
+            "value": "20M",
+            "enabled": true
+          },
+          {
+            "key": "read_buffer",
+            "value": "2M",
+            "enabled": true
+          },
+          {
+            "key": "write_buffer",
+            "value": "2M",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "key": "mysqlhotcopy",
+        "settings": [
+          {
+            "key": "interactive-timeout",
+            "value": null,
+            "enabled": true
+          }
+        ]
+      }
+    ]
+  }
+}

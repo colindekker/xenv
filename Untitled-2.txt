@@ -1,0 +1,30 @@
+ECHO   - crl db
+          IF NOT EXIST "!CA_LOCATION!\index.txt.attr" (
+            touch "!CA_LOCATION!\index.txt.attr"
+            ECHO     - db created
+          ) ELSE (
+            ECHO     - db exists
+          )
+        ECHO   - crlnumber db
+          IF NOT EXIST "!CA_LOCATION!\crlnumber" (
+            touch "!CA_LOCATION!\crlnumber"
+            ECHO     - db created
+          ) ELSE (
+            ECHO     - db exists
+          )
+          
+          
+          
+        ECHO   - crl
+          IF NOT EXIST "!CA_LOCATION!\crl\ca!CA_FILENAME!.crl.pem" (
+            openssl ca -config "!CA_LOCATION!\openssl.conf" -gencrl -out "!CA_LOCATION!\crl\ca!CA_FILENAME!.crl.pem"
+            REM >NUL 2>&1
+          ) ELSE (
+            ECHO     - ca.key exists
+          )
+
+          
+          ECHO     - crl
+          IF NOT EXIST "!CA_LOCATION!\val\ca!CA_FILENAME!.crl.val.txt" (
+            openssl crl -in "!CA_LOCATION!\crl\ca!CA_FILENAME!.crl.pem" -noout -text > "!CA_LOCATION!\val\ca!CA_FILENAME!.crl.pem.val.txt"
+          )

@@ -1,0 +1,6 @@
+[xenv-mysql]
+basedir="/xenv/server/mysql/on"
+log-error="/xenv/server/mysql/${MYSQL_VERSION}mysql.log"
+datadir="/xenv/data/mysql/${MYSQL_VERSION}"
+lc-messages-dir="/xenv/server/mysql/on/share"
+lc-messages=en_US

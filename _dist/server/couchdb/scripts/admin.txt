@@ -1,0 +1,38 @@
+  ECHO   - admin
+    SET CREDENTIALS=
+    SET ADMIN_USER_URL=http://!CREDENTIALS!127.0.0.1:5984/_node/%XENV_SERVICE_ID%@%ComputerName%/_config/admins/admin
+    
+    CALL :CHECKCURL "!ADMIN_USER_URL!" "errornot_found"
+    SET ADMIN_EXISTS=%CHECKCURL_RESULT%
+    
+    IF %ADMIN_EXISTS%==1 (
+      ECHO      creating
+      CURL -s -X PUT http://127.0.0.1:5984/_node/%XENV_SERVICE_ID%@%ComputerName%/_config/admins/admin -d "\"%XENV_USER_PWD%\""
+    )
+    
+    SET CREDENTIALS=admin:%XENV_USER_PWD%@
+    SET ADMIN_USER_URL=http://!CREDENTIALS!127.0.0.1:5984/_node/%XENV_SERVICE_ID%@%ComputerName%/_config/admins/admin
+
+    CALL :CHECKCURL "!ADMIN_USER_URL!" "errornot_found"
+    SET ADMIN_EXISTS_AFTER=%CHECKCURL_RESULT%
+    IF %ADMIN_EXISTS_AFTER%==1 (
+      ECHO result: %ADMIN_EXISTS_AFTER%
+    )
+  ECHO   - users db
+    CALL :CHECKCURL "GET http://!CREDENTIALS!127.0.0.1:5984/dbs/_users" "errornot_found"
+    SET USERS_DB_EXISTS=%CHECKCURL_RESULT%
+    ECHO     result: %USERS_DB_EXISTS%
+    
+    IF %USERS_DB_EXISTS%==1 (
+      ECHO      creating
+      CURL -X PUT http://!CREDENTIALS!127.0.0.1:5984/_users
+    )
+  ECHO   - adding default db (xenv)
+    CALL :CHECKCURL "GET http://127.0.0.1:5984/dbs/xenv" "errornot_found"
+    SET XENV_DB_EXISTS=%CHECKCURL_RESULT%
+    ECHO     result: %XENV_DB_EXISTS%
+    
+    IF %XENV_DB_EXISTS%==1 (
+      ECHO      creating
+      CURL -X PUT http://admin:%XENV_USERPWD%@127.0.0.1:5984/xenv
+    )

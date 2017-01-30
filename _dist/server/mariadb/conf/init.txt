@@ -1,0 +1,1 @@
+ --initialize --user=mysql --basedir=D:/XENV/server/mysql/on --datadir=D:/XENV/data/server/mysql/1
